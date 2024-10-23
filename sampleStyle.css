@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    /* display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; */
+}
+
+.info {
+    /* display: flex;
+    flex-direction: row; */
+}
+
+.info label {
+    display: inline-block;
+    font-weight: bold;
+    margin: 100px;
+}
+
+.info span {
+    color: #333;
+}
+
+.button-container {
+    text-align: right;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,55 @@
+const select = document.querySelector('.select-btnMed');
+const menu = document.querySelector('.contentddMed');
+const options = document.querySelectorAll('.options li');
+const searchBox = document.querySelector('.searchddMed input');
+const selected = document.querySelector('.selected');
+const caret = document.querySelector('.caret');
+
+// Toggle dropdown menu
+select.addEventListener('click', () => {
+    caret.classList.toggle('rotate');
+    menu.classList.toggle('active');
+    searchBox.value = ""; // Clear search box
+    filterOptions(""); // Reset filter on dropdown open
+});
+
+// Add event listener to each option
+options.forEach(option => {
+    option.addEventListener('click', () => {
+        selected.innerText = option.innerText;
+        caret.classList.remove('rotate');
+        menu.classList.remove('active');
+
+        options.forEach(option => {
+            option.classList.remove('selected-option');
+        });
+        option.classList.add('selected-option');
+    });
+});
+
+// Filter options based on search query
+searchBox.addEventListener('keyup', function() {
+    const search = searchBox.value.toLowerCase();
+    filterOptions(search);
+});
+
+function filterOptions(search) {
+    options.forEach(option => {
+        const optionText = option.innerText.toLowerCase();
+        if (optionText.indexOf(search) !== -1) {
+            option.style.display = 'block';
+        } else {
+            option.style.display = 'none';
+        }
+    });
+    
+}
+
+// Close the dropdown if clicked outside
+document.addEventListener('click', function(e) {
+    // Check if the click is outside the dropdown
+    if (!select.contains(e.target) && !menu.contains(e.target)) {
+        caret.classList.remove('rotate');
+        menu.classList.remove('active');
+    }
+});
